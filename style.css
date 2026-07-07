@@ -1,0 +1,214 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,700;1,400&family=Comic+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --primary: #4a6da7;
+  --secondary: #e8b4bc;
+  --accent: #f5d547;
+  --text: #22223b;
+  --gold: #ffd700;
+  --silver: #c0c0c0;
+  --bronze: #cd7f32;
+}
+
+body {
+  font-family: 'Poppins', 'Besley', serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #e0e7ff 0%, #f9fafb 60%, #ffe5ec 100%);
+  letter-spacing: 0.01em;
+  min-height: 100vh;
+}
+
+.paper-effect {
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.paper-effect:hover {
+  box-shadow: 0 16px 40px 0 rgba(31,38,135,0.18);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.handwritten {
+  font-family: 'Comic Neue', cursive;
+}
+
+.interactive-card {
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 1rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.interactive-card:hover {
+  box-shadow: 0 8px 25px rgba(74,109,167,0.15);
+  transform: translateY(-5px) scale(1.03);
+}
+
+.sticky-note {
+  transform: rotate(-2deg);
+  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffffc6 100%);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Enhanced slider styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  outline: none;
+  transition: all 0.2s ease;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Enhanced button styles */
+button {
+  background: linear-gradient(90deg, #4a6da7 0%, #e8b4bc 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(74,109,167,0.08);
+  padding: 0.75em 1.5em;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+button:hover {
+  background: linear-gradient(90deg, #e8b4bc 0%, #4a6da7 100%);
+  box-shadow: 0 4px 16px rgba(74,109,167,0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Badge styles for leaderboard */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.8em;
+  border-radius: 999px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #fff;
+  margin-right: 0.3em;
+}
+.badge-gold { background: linear-gradient(90deg, var(--gold), #ffe066); color: #bfa100; }
+.badge-silver { background: linear-gradient(90deg, var(--silver), #f8f9fa); color: #888; }
+.badge-bronze { background: linear-gradient(90deg, var(--bronze), #ffe5b4); color: #a97142; }
+
+.pill {
+  display: inline-block;
+  padding: 0.2em 0.9em;
+  border-radius: 999px;
+  font-size: 0.85em;
+  font-weight: 600;
+  background: #f5d54722;
+  color: #bfa100;
+  margin-left: 0.3em;
+}
+.pill-risk { background: #ffb4b4cc; color: #a10000; }
+.pill-top { background: #b4ffb4cc; color: #008a00; }
+
+/* Table row animation */
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#leaderboardBody tr { animation: fadeInRow 0.5s ease; }
+
+/* Score meter animation */
+#scoreMeter {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading animation for charts */
+.chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--primary);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+input, select {
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(74, 109, 167, 0.1);
+}
+
+#recommendations > div {
+  animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Footer handwritten badge */
+footer .handwritten {
+  font-size: 1em;
+  background: #ffe5ec;
+  color: #d72660;
+  border-radius: 1em;
+  padding: 0.1em 0.7em;
+}
+
+/* Background pattern (subtle, keep) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(74, 109, 167, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(245, 213, 71, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}

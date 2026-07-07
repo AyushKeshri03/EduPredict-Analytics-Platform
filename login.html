@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduPredict AI | Portal Access</title>
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Modern CSS Extensions -->
+  <link rel="stylesheet" href="style_modern.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: radial-gradient(circle at 10% 20%, rgba(243, 244, 246, 1) 0%, rgba(228, 230, 235, 1) 90%);
+      font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    }
+    .glass-login-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-8">
+
+  <div class="w-full max-w-lg mx-auto">
+    <!-- Platform Logo and Title -->
+    <div class="text-center mb-8 space-y-2">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-600 text-white font-extrabold text-xl shadow-lg shadow-indigo-600/20">
+        E
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 tracking-tight">EduPredict AI</h2>
+      <p class="text-xs sm:text-sm text-zinc-500 font-medium">Enterprise Academic Analytics & Predictions Platform</p>
+    </div>
+
+    <!-- Standalone Authentication Container -->
+    <div class="glass-login-panel p-6 sm:p-8 rounded-2xl border border-zinc-150 space-y-6">
+      
+      <!-- Double Tabs Login vs Signup -->
+      <div class="flex border-b border-zinc-200 pb-3">
+        <button id="auth-tab-login" onclick="toggleAuthTab('login')" class="flex-1 py-2 text-center text-sm font-bold border-b-2 border-indigo-600 text-indigo-600">Sign In</button>
+        <button id="auth-tab-signup" onclick="toggleAuthTab('signup')" class="flex-1 py-2 text-center text-sm font-semibold text-zinc-400 border-b-2 border-transparent">Create Account</button>
+      </div>
+
+      <!-- SIGN IN FORM -->
+      <form id="auth-login-form" class="space-y-4 text-left">
+        <div id="auth-login-error-banner" class="hidden text-xs bg-red-50 text-red-600 p-2.5 rounded border border-red-200"></div>
+        
+        <div>
+          <label class="block text-xs font-semibold text-zinc-500 mb-1">Username / Name</label>
+          <input type="text" id="auth-login-username" placeholder="Dr. Clara Mercer" value="Dr. Clara Mercer" class="w-full text-xs px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white/50" required />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-zinc-500 mb-1">Password</label>
+          <input type="password" id="auth-login-password" placeholder="••••••••" value="password" class="w-full text-xs px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white/50" required />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-zinc-500 mb-1">Access Role</label>
+          <select id="auth-login-role" class="w-full text-xs px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white/50">
+            <option value="teacher" selected>Teacher Access</option>
+            <option value="admin">Admin Access</option>
+            <option value="student">Student Access</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-zinc-400">
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="checkbox" id="auth-login-remember" checked class="rounded border-zinc-300" /> Remember Login
+          </label>
+          <span class="hover:underline cursor-pointer">Forget Password?</span>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition-colors shadow">Sign In</button>
+
+        <!-- Demo credentials helper -->
+        <div class="p-3 bg-zinc-50/50 rounded border border-zinc-150 text-[10px] text-zinc-500 space-y-1">
+          <div class="font-bold text-gray-700">💡 Seed Accounts for Quick Testing:</div>
+          <div>• <b>Teacher Access</b>: Enter <code>teacher</code> (or <code>Dr. Clara Mercer</code>) & password <code>password</code></div>
+          <div>• <b>Admin Access</b>: Enter <code>admin</code> (or <code>Director</code>) & password <code>password</code></div>
+          <div>• <b>Student Access</b>: Enter <code>student</code> (or <code>Arjun Sharma</code>) & password <code>password</code></div>
+        </div>
+      </form>
+
+      <!-- SIGN UP FORM -->
+      <form id="auth-signup-form" class="space-y-4 text-left hidden">
+        <div id="auth-signup-error-banner" class="hidden text-xs bg-red-50 text-red-600 p-2.5 rounded border border-red-200"></div>
+        
+        <div class="grid grid-cols-2 gap-3">
+          <div class="col-span-2">
+            <label class="block text-xs font-semibold text-zinc-500 mb-1">Username / Full Name</label>
+            <input type="text" id="auth-signup-username" placeholder="e.g. John Smith" class="w-full text-xs px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white/50" required />
+          </div>
+          
+          <div>
+            <label class="block text-xs font-semibold text-zinc-500 mb-1">Password</label>
+            <input type="password" id="auth-signup-password" placeholder="••••••••" class="w-full text-xs px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white/50" required />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-zinc-500 mb-1">Access Role</label>
+            <select id="auth-signup-role" onchange="toggleSignupRoleFields()" class="w-full text-xs px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white/50">
+              <option value="student" selected>Student Register</option>
+              <option value="teacher">Teacher Register</option>
+              <option value="admin">Admin Register</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dynamic Student Register Fields -->
+        <div id="auth-signup-student-fields" class="space-y-3 p-3 bg-zinc-50/50 rounded border border-dashed border-zinc-200">
+          <span class="text-[9px] font-bold text-indigo-500 uppercase tracking-wider">Student Setup</span>
+          
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div>
+              <label class="block text-[10px] font-semibold text-zinc-500 mb-1">Student ID (Optional)</label>
+              <input type="text" id="auth-signup-s-id" placeholder="e.g. S-2023-016" class="w-full px-2 py-1 border rounded" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-semibold text-zinc-500 mb-1">Department</label>
+              <select id="auth-signup-s-department" class="w-full px-2 py-1 border rounded">
+                <option value="Science" selected>Science</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts">Arts</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] font-semibold text-zinc-500 mb-1">Class</label>
+              <select id="auth-signup-s-class" class="w-full px-2 py-1 border rounded">
+                <option value="10">Class 10</option>
+                <option value="11" selected>Class 11</option>
+                <option value="12">Class 12</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] font-semibold text-zinc-500 mb-1">Section</label>
+              <select id="auth-signup-s-section" class="w-full px-2 py-1 border rounded">
+                <option value="A" selected>A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sliders -->
+          <div class="grid grid-cols-3 gap-2 text-[10px] text-zinc-600">
+            <div>
+              <label class="block mb-0.5">Attendance %</label>
+              <input type="number" id="auth-signup-s-attendance" min="0" max="100" value="85" class="w-full px-1.5 py-0.5 border rounded" />
+            </div>
+            <div>
+              <label class="block mb-0.5">Assignments %</label>
+              <input type="number" id="auth-signup-s-assignments" min="0" max="100" value="80" class="w-full px-1.5 py-0.5 border rounded" />
+            </div>
+            <div>
+              <label class="block mb-0.5">Test Scores %</label>
+              <input type="number" id="auth-signup-s-testscores" min="0" max="100" value="75" class="w-full px-1.5 py-0.5 border rounded" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow">Register Account</button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Database & Form Handling Scripts -->
+  <script src="js/db.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
